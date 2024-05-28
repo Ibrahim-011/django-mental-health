@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5; /* Optional: Add a background color */
+        }
+
+        form {
+            width: 300px; /* Adjust the width of the form as needed */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)); /* Gradient background for the form */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Set position to relative */
+        }
+
+        input[type='text'],
+        input[type='password'],
+        input[type='submit'],
+        .signup-button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type='submit'] {
+            background-color: orange;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type='submit']:hover {
+            background-color: #ff8c00; /* Darker shade of orange on hover */
+        }
+
+        .signup-button {
+            background-color: orange;
+            border: 1px solid orange;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        .signup-button:hover {
+            background-color: #ff8c00; /* Darker shade of orange on hover */
+            border-color: #ff8c00;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Login</h1>
+        <input type="text" name="username" placeholder="Username"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <input type="submit" value="Submit">
+        <a href="{% url 'signup' %}" class="signup-button">Sign Up</a>
+    </form>
+</body>
+</html>
